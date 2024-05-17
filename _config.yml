@@ -11,6 +11,7 @@ domain: github.io
 url: gatlinnewhouse.github.io
 # the subpath of your site, e.g. /blog
 baseurl:
+repository: gatlinnewhouse/gatlinnewhouse.github.io
 
 # timezozne e.g. Asia/Seoul
 timezone: America/Los_Angeles
@@ -38,6 +39,9 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+
+include:
+  - .nojekyll
 
 plugins:
   - jekyll-sitemap
