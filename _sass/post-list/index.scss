@@ -1,0 +1,42 @@
+@import "category";
+@import "series";
+@import "tag";
+
+.post-list {
+    margin-bottom: 2.5px;
+    padding-left: 10px;
+
+    > .post-preview {
+        margin-top: 1rem;
+
+        > .title {
+            display: inline-block;
+            color: var(--title-color);
+            word-spacing: -0.2rem;
+        }
+
+        > .title > .post-preview-redirect-title {
+            color: rgb(255, 201, 101);
+        }
+
+        > .date {
+            color: rgb(147, 147, 147);
+            margin-top: 0.25rem;
+            font-size: 0.75rem;
+            float: right;
+            display: block;
+        }
+
+        > .description {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            color: #858BB9;
+            margin-left: 5px;
+            line-height: 1.53;
+            font-size: 0.9rem;
+            word-break: break-word;
+            overflow: hidden;
+            -webkit-line-clamp: 2;
+        }
+    }
+}

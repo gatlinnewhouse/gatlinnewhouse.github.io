@@ -1,0 +1,30 @@
+{% assign title = include.post.title %}
+{% assign date = include.post.date | date: "%F" %}
+{% assign date_title = include.post.date | date: "%T %z" %}
+{% assign url = include.post.url %}
+
+<div class="post-preview">
+    <p class="title{% if include.post.series %} series{% endif %}{% if include.is_current | default: false %} current{% endif %}"><a
+        {% unless include.is_current | default: false %}
+            {% if include.post.redirect %}
+                class="post-preview-redirect-title"
+                href="{{ include.post.redirect }}"
+            {% else %}
+                href="{{ site.baseurl }}{{ url }}"
+            {% endif %}
+        {% endunless %}
+    >{{ title }}</a></p>
+    {% unless include.hideDate %}
+    <p class="date" title="{{ date_title }}">{{ date }}</p>
+    {% endunless %}
+    {% if include.description %}
+        <p class="description">
+            {% if include.post.description == null %}
+                {% assign description = include.post.content | strip_html | truncatewords: 50 %}
+            {% else %}
+                {% assign description = include.post.description | escape %}
+            {% endif %}
+            {{ description }}
+        </p>
+    {% endif %}
+</div>

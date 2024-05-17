@@ -1,0 +1,52 @@
+{% assign filename = page.path | split: "/" | last %}
+{% assign command_cwd = "~" | split: "/" | concat: page.categories %}
+{% assign command_text = "cat " | append: filename %}
+{% include command/index.html cwd = command_cwd text = command_text %}
+
+{% if page.redirect %}
+    <script>
+        location.href = "{{ page.redirect }}";
+    </script>
+{% endif %}
+
+<article class="post">
+<a class="post-title{% if page.series %} series{% endif %}"><h1 id="{{ page.title | strip_html }}">{{ page.title }}</h1></a>
+<hr/>
+{% if page.series %}
+{% include post/series-list.html post=page hidden=true %}
+{% endif %}
+<span class="published" title="{{ page.date }}">{{ page.date | date: "%F" }}</span>
+<br/>
+{{ content | improve}}
+{% if page.tags.size != 0 %}
+    <br/>
+    <p class="tags">
+        {% for tag in page.tags %}
+            <a class="post-tag" href="{{ site.baseurl }}/tags#{{ tag | url_encode | replace: '+', '%20' }}">#{{ tag }}</a>
+        {% endfor %}
+    </p>
+{% endif %}
+</article>
+{% if page.series %}
+{% include post/series-list.html post=page %}
+{% endif %}
+{% include post/bidirectional-nav.html post=page %}
+{% if site.catalog %}
+{% include catalog/index.html %}
+{% endif %}
+{% if page.series %}
+<script>
+    const post = document.getElementsByClassName('post')[0];
+    const firstSeriesSublist = post.getElementsByClassName('series-sublist')[0];
+
+    function update() {
+        if(post.clientHeight < innerHeight)
+            firstSeriesSublist.hidden = true;
+        else
+            firstSeriesSublist.hidden = false;
+    }
+
+    update();
+    window.addEventListener('resize', update);
+</script>
+{% endif %}

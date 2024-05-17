@@ -1,0 +1,67 @@
+# https://jekyllrb.com/docs/configuration/
+
+title: gtn
+email: gatlin.newhouse@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Gatlin Newhouse's personal website and blog.
+
+# if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+domain: github.io
+# the base hostname & protocol for your site, e.g. http://example.com
+url: https://gatlinnewhouse.github.io
+# the subpath of your site, e.g. /blog
+baseurl:
+
+# timezozne e.g. Asia/Seoul
+timezone: America/Los_Angeles
+
+# this is menu
+menu:
+  - text: Menu
+  - text: About
+    url: /about
+  - text: Projects
+    url: /projects
+  - text: Tags
+    url: /tags
+#  - text: Categories
+#    url: /categories
+#  - text: u can write html like
+#  - html: <table style="margin:0 auto"><thead><tr><th style="text-align:center">1</th><th style="text-align:center">2</th><th style="text-align:center">3</th></tr></thead><tbody><tr><td style="text-align:center">4</td><td style="text-align:center">5</td><td style="text-align:center">6</td></tr><tr><td style="text-align:center">7</td><td style="text-align:center">8</td><td style="text-align:center">9</td></tr></tbody></table>
+
+footer:
+  name: Gatlin Newhouse
+  link: https://github.com/gatlinnewhouse
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-typogrify
+  - jemoji
+  - jekyll-asciinema
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+css: assets/css
+js: assets/js
+images: assets/images
+
+# external-posts-category-name: external links # add external post using `redirect: {uri}` in post front matter
+# catalog: true # add catalog to posts
+
+# theme version
+version: 1.0.1
