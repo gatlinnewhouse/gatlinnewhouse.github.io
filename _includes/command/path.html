@@ -1,3 +1,0 @@
-<nav class="path">
-{% for directory in include.path %}<a href="{{ site.baseurl }}{% if directory == "~" %}/{% else %}/categories#{{ directory }}{% endif %}" class="path-item">{{ directory }}</a>{% unless forloop.last %}/{%endunless%}{% endfor %}
-</nav>
