@@ -17,3 +17,5 @@ Bootloaders, Computer Architecture/Organization, or anything that deals with bit
 You can find me on <a rel="me" href="https://defcon.social/@gtn">Mastodon</a>.
 
 I'm also on [ctftime](https://ctftime.org/) as `gtn`.
+
+Find my Linux Kernel contributions [here](https://lore.kernel.org/all/?q=gatlin.newhouse).
